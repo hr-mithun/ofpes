@@ -70,7 +70,7 @@ function runUser() {
       audio: true,
     });
     document.getElementById("user-1").srcObject = localStream;
-    $.post("/get-remote-users", { omeID: username })
+    $.post("https://onlyfriends-pes-c75645ae1c93.herokuapp.com/get-remote-users", { omeID: username })
       .done(function (data) {
         console.log(data);
         if (data[0]) {
@@ -197,7 +197,7 @@ function runUser() {
   }
   function fetchNextUser(remoteUser) {
     $.post(
-      "/get-next-user",
+      "https://onlyfriends-pes-c75645ae1c93.herokuapp.com/get-next-user",
       { omeID: username, remoteUser: remoteUser },
       function (data) {
         console.log("Next user is: ", data);
