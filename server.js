@@ -3,10 +3,9 @@ const path = require("path");
 const bodyparser = require("body-parser");
 
 const app = express();
-//const dotenv = require("dotenv");
 const connectDB = require("./Server/database/connection");
 
-//dotenv.config({ path: "config.env" });
+
 const PORT = process.env.PORT || 8080;
 
 connectDB();
@@ -44,9 +43,6 @@ io.on("connection", (socket) => {
 
     var userCount = userConnection.length;
     console.log("UserCount", userCount);
-    userConnection.map(function (user) {
-      console.log("Username is: ", user.user_id);
-    });
   });
   socket.on("offerSentToRemote", (data) => {
     var offerReceiver = userConnection.find(
